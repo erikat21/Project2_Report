@@ -5,3 +5,8 @@ img {
   margin-inline: auto; /* centers the image */
   border-radius: 0.5rem; /* optional: smooth corners */
 }
+
+p {
+  text-indent: 40px; /* adjust the px value as needed */
+}
+
