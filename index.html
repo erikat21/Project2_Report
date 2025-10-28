@@ -172,22 +172,48 @@
             rates compared to the citywide rate.</figcaption>
         </figure>
 
-        <p>Design Decisions and Rationale:</p>
+        <h3>Design Decisions and Rationale:</h3>
 
         <ul>
-          <li>We could’ve stuck with a simple bar plot to show the distribution of 
+          <li><strong>Score: -0.5</strong> | We could’ve stuck with a simple bar plot to show the distribution of 
             substantiation rate per each borough; however, by using a choropleth map the 
             reader can visually see there is a substantial amount of precincts that 
-            differ from the average.</li>
-          <li>We decided to use a narrower confidence interval to highlight the outliers 
+            differ from the average. What worked well here was that the reader is able to do a quick scan of the city
+            without reading any numbers. The trade-off is that in choropleth maps, there is an implicit 
+            connection between area and importance that readers might make subconsciously, causing larger precincts 
+            to potentially seem more influential than smaller ones, which doesn't align with our intention.
+            However, we believe that pairing the map with the bar chart aggregated by boroughs helps provide
+            further context by anchoring the visual to a simple point of comparison through the numbers.
+            Overall, the bar chart and the map pair together well with the goal of framing a convincing
+            narrative about precinct variation.
+            </li>
+          <li><strong>Score: -1.5</strong> | We decided to use a narrower confidence interval to highlight the outliers 
             which makes it look like precincts do not behave the same with many precincts 
-            substantiating at different rates.</li>
-          <li>We decided to use the bar chart on the side as a deceptive technique because 
+            substantiating at different rates. Tightening the confidence interval essentially 
+            increases the number of precincts that differ from the average, which overall strengthens
+            the proposition. Combined with a diverging color palette where we used gray as a neutral baseline,
+            the bright blue and green precincts stand out immediately due to preattentive processing,
+            which immediately directs the reader's attention to precincts that differ from the average.
+            We intentionally refrained from mentioning the use of confidence intervals to determine
+            thresholds between above / about the same as / below the citywide average to avoid 
+            statistical jargon, which makes the visualization feel more natural but also limits the reader's 
+            ability to subsequently question how these cutoffs were decided, which is something that will be further 
+            touched upon in the final reflection section. Overall, this deceptive technique,
+            combined with the color palette, does well to frame a convincing narrative for the proposition.
+             </li>
+          <li><strong>Score: -1.0</strong> | We decided to use the bar chart on the side as a deceptive technique because 
             the boroughs have unequal counts of precincts and complaints so the percentage 
-            of precincts can't be accurately be compared but it makes readers think 
+            of precincts can't be accurately be compared in a sense but it makes readers think 
             substantiation rates are more different from the city average than it is. 
             For example Staten Island only has 4 precincts so the 25%/50%/25% split can 
-            be misleading.</li>
+            be misleading, which is well within our intentions. However, the reader most likely won't be aware of this.
+            What worked well here was the fact that 
+            reader's are able to quickly deduce how the boroughs differ in terms of their precinct compositions
+            thanks to the bar chart and the labeled percentages. A potential alternative we could have used here
+            is perhaps displaying the raw counts of precincts, which is arguably more earnest, but due to the risk of convoluting the visualization as well as potentially 
+            providing evidence against our framed narrative, we decided to stick with percentages to emphasize 
+            the visible difference between precincts. 
+            </li>
         </ul>
       </section>
 
@@ -202,20 +228,51 @@
             precincts seem to substantiate at a similar rate.</figcaption>
         </figure>
 
-        <p>Design Decisions and Rationale:</p>
+        <h3>Design Decisions and Rationale:</h3>
 
         <ul>
-          <li>We chose a funnel plot because as a simple scatter plot we see an apparent 
+          <li><strong>Score: +1.0</strong> | We chose a funnel plot because as a simple scatter plot we see an apparent 
             trend in the data; a tapered end trailing off towards the right of the plot 
             with most points being within the expected range near the citywide average. 
             The funnel plot enhances this trend that we want to draw the readers attention 
-            to. </li>
-          <li>We decided to use a wider confidence interval to limit outliers but framed 
+            to in a visually interesting way. We believe that the funnel plot was a great choice here 
+            because it offers a very visually intuitive way for readers of all backgrounds to see which 
+            precincts lie inside and outside of the "expected range" band, which allows them to read the chart preattentively.
+            The use of the funnel plot here isn't inherently deceptive, but rather how we manipulated the confidence interval that produces the 
+            "expected range" band. Along with the dashed line marked "City Average", this band 
+            creates the visual impression that most precincts behave about the same once you 
+            consider the number of complaints they are receiving.</li>
+          <li><strong> Score: -1.5 </strong> | We decided to use a wider confidence interval to limit outliers but framed 
             it as being due to the amount of complaints per precincts making the 
-            substantiation rates look like they behave the same.</li>
-          <li>We decided to not group by boroughs to show Simpsons Paradox, when grouped 
+            substantiation rates look like they behave the same. This is complementary to the first visualization,
+            building upon our core deceptive technique of manipulating the confidence interval to support 
+            a certain side of the proposition. Just like the other visualization, we didn't mention the use of confidence 
+            intervals explicitly and renamed it "expected range, which is much more intuitive for the reader, especially 
+            if they do not have a statistical background. We also connected this design choice to our color palette, which 
+            follows a similar trend as our first visualization. Most points are displayed as a neutral gray baseline, which 
+            attracts less attention from the viewer, while the bright orange and green makes use of preattentive processing 
+            to immediately catch the reader's attention on a first glance. However, it's important to note that this serves the 
+            opposite purpose here. By making the viewer focus on the very few outliers, we reinforce the narrative 
+            that most precincts do in fact behave the same once you take volume into account. We would argue that the 
+            use of confidence interval manipulation here is even more deceptive here, because we are introducing an additional complexity: the number 
+            of complaints a precinct receives, then framing it to seem that once you consider volume, most precincts 
+            sit at the citywide average, as if this is a truth present in the data itself.  </li>
+          <li><strong> Score: -1.0 </strong> | We also decided to use annotations in a much more strategic way
+          in this visualization. In contrast to the first visualization, where our annotations were mainly used to 
+          prompt the reader to reflect, we use them here to frame the takeaway. The subtitle is meant to give a brief 
+          idea of what to expect through our visualization, while the "What this means" annotation really steers that home 
+          by getting the viewer to read the chart through that lens, preferably before they even inspect the plot itself.
+          Something else that works well here is that the annotation occupies an otherwise awkward area of whitespace 
+          due to the structure of the funnel plot. The main trade-off here is that by summarizing the visualization with this annotation, it 
+          can feel redundant or conclusive. However, due to how it frames our narrative, we think that keeping it 
+          was an impactful choice, especially combined with the design choices mentioned previously.</li>
+          <li><strong>Score: -0.5</strong> | We decided to not group by boroughs to show Simpsons Paradox, in contrast to the first visualization, when grouped 
             it looked like there was a trend of different substantiation rates but when 
-            we removed the groups we found there was no such trend</li>
+            we removed the groups we found there was no such trend. This is more of a bonus point since 
+            this visualization would have to be compared to the first one. For readers with a statistical background, this choice signals the idea of Simpson's Paradox, where grouping 
+            by borough can make it seem like the story flips. This can make this side of the proposition more convincing to that demographic of readers once 
+            they see a statistical explanation for the reversal. In reality, this was just due to how we tuned the confidence interval.
+            </li>
         </ul>
       </section>
 
